@@ -1,0 +1,14 @@
+<div style="margin: 8px;">
+	<div>
+		<span>Сайт</span>
+		<input id="domain" value="emuc.ru" />
+		<span>Запрос</span>
+		<input id="request" size="80" />
+		<button onclick="event.stopPropagation(); fetch(`https://yandex.ru/search/xml?user=em1l&key=03.9393599:202d18045ac434ffed915c533649bb21&query=${document.getElementById('request').value}&lr=193&l10n=ru&sortby=rlv&filter=strict&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D100.docs-in-group%3D3&page=1`).then(response => response.text()).then(str => new window.DOMParser().parseFromString(str, 'text/xml')).then(data => console.log(data));">
+			Найти место в поисковой выдаче Yandex
+		</button>
+	</div>
+	<div>
+		<span id="yandexResaltPlace"></span>
+	</div>
+</div>
